@@ -2,11 +2,10 @@
     import { onMount } from 'svelte';
     import Comparison from '../lib/components/comparison/Comparison.svelte';
     import ModelHandler from '$lib/tools/ModelHandler.js';
-    import Background from '$lib/components/background/Background.svelte';
     import ModelList from '$lib/components/lists/ModelList.svelte';
 
     let modelData = $state([]);
-    
+    let selectedModels = $state("")
     
     onMount(async () => {
       modelData = await ModelHandler.retrievers.checkAvailModels();
@@ -14,12 +13,14 @@
     });
 </script>
 
-<div class="bg-base-100 px-4 py-16">
-    <main class="mx-auto max-w-7xl border-2">
-        <h1 class="text-4xl">Placeholder</h1>
+<div class="bg-base-100 px-4 py-24">
+    <main class="mx-auto max-w-7xl flex flex-col gap-12">
+        <h1 class="text-6xl">Placeholder</h1>
         {#if modelData}
-            <ModelList {modelData} />
+            <ModelList {modelData} bind:selectedModels={selectedModels} />
+            <p>{selectedModels}</p>
         {/if}
         <Comparison />
+
     </main>
 </div>

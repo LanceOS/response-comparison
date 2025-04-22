@@ -1,3 +1,5 @@
+import { PUBLIC_LOCAL_URL } from "$env/static/public";
+
 class ModelHandler {
     instance: ModelHandler | null = null;
 
@@ -14,7 +16,7 @@ class ModelHandler {
         */
         async checkAvailModels() {
             try {
-                const response = await fetch('/api/getmodels', {
+                const response = await fetch(`${PUBLIC_LOCAL_URL}/api/getmodels`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json'
@@ -35,22 +37,41 @@ class ModelHandler {
     
     }
 
+    creators = {
 
-    async createModelMessage() {
-        try {
-            const response = await fetch('/api/create', {
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            });
+        /**
+         * 
+         * @param model 
+         * @param prompt 
+         * @returns 
+         */
+        async createModelMessage(model: string, prompt: string) {
+            try {
+                const response = await fetch(`${PUBLIC_LOCAL_URL}/api/create`, {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ model: model, prompt: prompt })
+                });
+    
+                if (!response) throw new Error('Failed to get response');
+    
+                return response.json();
+            } catch (error) {
+                console.error(error);
+            }
+        },
 
-            if (!response) throw new Error('Failed to get response');
-
-            return response.json();
-        } catch (error) {
-            console.log(error);
+        async analyzeContexts() {
+            try {
+                console.log("This")
+            }
+            catch(error) {
+                console.error(error)
+            }
         }
     }
+
 }
 
 export default ModelHandler;

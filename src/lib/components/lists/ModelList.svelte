@@ -1,16 +1,11 @@
 <script lang="ts">
-    let props = $props();
-
+    let { selectedModels = $bindable(), modelData } = $props();
 </script>
 
-<section class="border-2">
-    <div class="border-2">
-        <h2>Models</h2>
+<section class="">
+    <div class="flex flex-col gap-2">
+        <h2 class="text-3xl">Search Models</h2>
 
-        <div>
-            {#each props.modelData as model}
-                <p>{model.name}</p>
-            {/each}
-        </div>
+        <input class="bg-accent"/>
     </div>
 </section>
