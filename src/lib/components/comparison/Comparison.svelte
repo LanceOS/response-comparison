@@ -17,15 +17,8 @@
     });
 </script>
 
-{#snippet Responses(section)}
-    {#each section as response}
-        <h2>{response.text}</h2>
-        <p>{response.id}</p>
-    {/each}
-{/snippet}
 
 <section>
-    <div>
-        {@render Responses(responseData)}
-    </div>
+
+
 </section>
