@@ -37,7 +37,7 @@ class ModelHandler {
     
     }
 
-    creators = {
+    static creators = {
 
         /**
          * 
@@ -46,8 +46,11 @@ class ModelHandler {
          * @returns 
          */
         async createModelMessage(model: string, prompt: string) {
+            if(!prompt || !model) return;
+
             try {
                 const response = await fetch(`${PUBLIC_LOCAL_URL}/api/create`, {
+                    method: "POST",
                     headers: {
                         'Content-Type': 'application/json'
                     },
@@ -55,7 +58,7 @@ class ModelHandler {
                 });
     
                 if (!response) throw new Error('Failed to get response');
-    
+
                 return response.json();
             } catch (error) {
                 console.error(error);

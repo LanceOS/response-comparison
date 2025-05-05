@@ -6,13 +6,7 @@ class ResponseTools {
         this.instance = this;
     }
 
-    static async formatResponse() {
-        const response = fetch('', {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
-    }
+    
 }
 
 export default ResponseTools;

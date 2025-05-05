@@ -21,7 +21,6 @@ export async function POST({ request }: RequestEvent) {
         });
 
         const data = await response.json()
-
         if(!data) {
             return new Response(`Failed to get LLM response ${JSON.stringify(data)}`, { status: 500 })
         }

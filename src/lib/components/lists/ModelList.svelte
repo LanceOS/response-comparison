@@ -23,7 +23,7 @@
                 <button type="button" aria-label="View Models" class="text-2xl font-semibold">View Models</button>
             </div>
     
-            <div class="flex flex-col gap-2">
+            <div class="flex gap-2">
                 {#each modelData as item}
                     <button type="button" aria-label="Select Model" class="w-56 btn" onclick={() => addModel(item.name)}>{item.name}</button>
                 {/each}
@@ -34,7 +34,7 @@
         <div class="flex flex-col gap-2">
             <p class="text-2xl font-semibold">Selected Models</p>
 
-            <div>
+            <div class="flex gap-2">
                 {#each selectedModels as item}
                     <p>{item}</p>
                 {/each}
