@@ -25,7 +25,7 @@
 </script>
 
 
-<div class=" px-4 py-24 bg-base-100 min-h-dvh">
+<div class=" px-4 py-24 min-h-dvh">
     <main class="mx-auto max-w-7xl flex flex-col gap-12">
         <h1 class="text-6xl">Placeholder</h1>
 

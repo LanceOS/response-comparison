@@ -36,7 +36,7 @@
 
             <div class="flex gap-2">
                 {#each selectedModels as item}
-                    <p>{item}</p>
+                    <button class="btn ">{item}</button>
                 {/each}
             </div>
         </div>
