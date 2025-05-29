@@ -4,7 +4,7 @@
 	const { sendPrompt } = $props();
 
 	const submitPrompt = () => {
-		if(prompt.length > 700) {
+		if(prompt.length > 1000) {
 			charLimit = true;
 			return;
 		}

@@ -3,6 +3,9 @@
 
 
     const addModel = (model: string) => {
+        if(selectedModels.includes(model)) {
+            return;
+        }
         selectedModels.push(model)
     }
 </script>
